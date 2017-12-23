@@ -2,10 +2,10 @@
     <acme-navbar />
 </div>
 
-<div class="container mt-60">
+<div class="container mt-60 mb-60">
   <div class="row border_about">
     <div class="col-xs-6 for_desk">
-      <h4>About 12,200,000 results</h4>
+      <h4>About {{ctrl.pageInfo.totalResults | number}} results</h4>
     </div>
     <div class="col-xs-3 col-xs-offset-3 for_desk">
       <div ng-click="ctrl.toggleFilter()" class="filter_click">
@@ -21,29 +21,29 @@
       <div class="col-xs-4 for_desk">
         <h5 class="border_about">UPLOAD DATE</h5>
         <h6 (click)="upload_filter('lh')" [ngClass]="{'bold_h': upload_variable === 'lh'}">Last hour 
-          <i *ngIf="upload_variable == 'lh'" class="fa fa-times" aria-hidden="true"></i>
+          <i ng-if="ctrl.upload_variable == 'lh'" class="fa fa-times" aria-hidden="true"></i>
         </h6>
         <h6 (click)="upload_filter('to')" [ngClass]="{'bold_h': upload_variable === 'to'}">Today 
-          <i *ngIf="upload_variable == 'to'" class="fa fa-times" aria-hidden="true"></i>
+          <i ng-if="ctrl.upload_variable == 'to'" class="fa fa-times" aria-hidden="true"></i>
         </h6>
         <h6 (click)="upload_filter('we')" [ngClass]="{'bold_h': upload_variable === 'we'}">This week 
-          <i *ngIf="upload_variable == 'we'" class="fa fa-times" aria-hidden="true"></i>
+          <i ng-if="ctrl.upload_variable == 'we'" class="fa fa-times" aria-hidden="true"></i>
         </h6>
         <h6 (click)="upload_filter('mo')" [ngClass]="{'bold_h': upload_variable === 'mo'}">This month 
-          <i *ngIf="upload_variable == 'mo'" class="fa fa-times" aria-hidden="true"></i>
+          <i ng-if="ctrl.upload_variable == 'mo'" class="fa fa-times" aria-hidden="true"></i>
         </h6>
       </div>
 
       <div class="col-xs-4 for_desk">
         <h5 class="border_about">TYPE</h5>
         <h6 (click)="type('vi')" [ngClass]="{'bold_h': type_variable === 'vi'}">Video 
-          <i *ngIf="type_variable == 'vi'" class="fa fa-times" aria-hidden="true"></i>
+          <i ng-if="ctrl.type_variable == 'vi'" class="fa fa-times" aria-hidden="true"></i>
         </h6>
         <h6 (click)="type('ch')" [ngClass]="{'bold_h': type_variable === 'ch'}">Channel 
-          <i *ngIf="type_variable == 'ch'" class="fa fa-times" aria-hidden="true"></i>
+          <i ng-if="ctrl.type_variable == 'ch'" class="fa fa-times" aria-hidden="true"></i>
         </h6>
         <h6 (click)="type('pl')" [ngClass]="{'bold_h': type_variable === 'pl'}">Playlist 
-          <i *ngIf="type_variable == 'pl'" class="fa fa-times" aria-hidden="true"></i>
+          <i ng-if="ctrl.type_variable == 'pl'" class="fa fa-times" aria-hidden="true"></i>
         </h6>
       </div>
 
@@ -58,12 +58,13 @@
 
     <div class="for_mobile mb-20 col-xs-12">
     <div class="col-xs-4">
-      <div class="dropdown">
-        <button *ngIf="type_variable ===''" class="btn btn-default type_but dropdown-toggle" type="button" data-toggle="dropdown">All
+      <div uib-dropdown is-open="status.isopen1">
+      
+        <button ng-if="ctrl.type_variable ===''" class="btn btn-default type_but dropdown-toggle" uib-dropdown-toggle ng-disabled="disabled" type="button" data-toggle="dropdown">All
         <span class="caret"></span></button>
-        <button *ngIf="type_variable === 'ch'" class="btn btn-default type_but dropdown-toggle" type="button" data-toggle="dropdown">Channel
+        <button ng-if="ctrl.type_variable === 'ch'" class="btn btn-default type_but dropdown-toggle" uib-dropdown-toggle ng-disabled="disabled" type="button" data-toggle="dropdown">Channel
         <span class="caret"></span></button>
-        <button *ngIf="type_variable === 'pl'" class="btn btn-default type_but dropdown-toggle" type="button" data-toggle="dropdown">Playlists
+        <button ng-if="ctrl.type_variable === 'pl'" class="btn btn-default type_but dropdown-toggle" uib-dropdown-toggle ng-disabled="disabled" type="button" data-toggle="dropdown">Playlists
         <span class="caret"></span></button>
 
         <ul class="dropdown-menu">
@@ -75,25 +76,26 @@
     </div>
 
     <div class="col-xs-6">
-      <div class="dropdown">
 
-        <button *ngIf="upload_variable === ''" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Any Time
+      <div uib-dropdown is-open="status.isopen2">
+
+        <button ng-if="ctrl.upload_variable === ''" class="btn btn-default dropdown-toggle" uib-dropdown-toggle ng-disabled="disabled" type="button" data-toggle="dropdown">Any Time
         <span class="caret"></span></button>
 
-        <button *ngIf="upload_variable === 'to'" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Today
+        <button ng-if="ctrl.upload_variable === 'to'" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Today
         <span class="caret"></span></button>
 
-        <button *ngIf="upload_variable === 'we'" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">This week
+        <button ng-if="ctrl.upload_variable === 'we'" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">This week
         <span class="caret"></span></button>
 
-        <button *ngIf="upload_variable === 'mo'" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">This Month 
+        <button ng-if="ctrl.upload_variable === 'mo'" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">This Month 
         <span class="caret"></span></button>
 
-        <ul class="dropdown-menu">
-          <li><a (click)="upload_filter('')">Any Time</a></li>
-          <li><a (click)="upload_filter('to')">Today</a></li>
-          <li><a (click)="upload_filter('we')">This Week</a></li>
-          <li><a (click)="upload_filter('mo')">This Month</a></li>
+        <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+          <li><a ng-click="upload_variable = ''">Any Time</a></li>
+          <li><a ng-click="upload_variable = 'to'">Today</a></li>
+          <li><a ng-click="upload_variable = 'we'">This Week</a></li>
+          <li><a ng-click="upload_variable = 'mo'">This Month</a></li>
         </ul>
       </div>
     </div>
@@ -102,23 +104,23 @@
 
   </div>
 
-  <div class="row mt-20 center"  *ngIf="filter_loading">
+  <div class="row mt-20 center"  ng-if="ctrl.filter_loading">
     <img src="https://thumbs.gfycat.com/AggressiveGrouchyHammerkop-max-1mb.gif" width="50%" class="center"> 
   </div>
 
-  <div *ngIf="!filter_loading">
+  <div ng-if="!ctrl.filter_loading && ctrl.items.length > 0">
     <div class="row mt-20 ml-10 display_row_imco" ng-repeat="item in ctrl.items">
-      <div class="image_view" routerLink="/video" *ngIf = "item.video">
-        <img src="{{item.snippet.thumbnails.medium.url}}">
+      <div class="image_view" routerLink="/video" ng-if="item.id.kind == 'youtube#video'">
+        <img width="250" src="{{item.snippet.thumbnails.medium.url}}">
         <span class="timing_img">2:02</span>
       </div>
-      <div class="image_view" routerLink="/channel" *ngIf = "item.channel">
+      <div class="image_view_channel" routerLink="/channel" ng-if="item.id.kind == 'youtube#channel'">
         <div class="center channel_pp_search">
           <img width="120" height="120" src="{{item.snippet.thumbnails.medium.url}}">
         </div>
       </div>
-      <div class="image_view" *ngIf = "item.playlist">
-        <img src="{{item.snippet.thumbnails.medium.url}}">
+      <div class="image_view" ng-if="item.id.kind == 'youtube#playlist'">
+        <img width="250" src="{{item.snippet.thumbnails.medium.url}}">
         <span class="timing_img_playlist">
           <p class="mt-30 ft-20"><b>37</b></p>
           <p class="mt-5 text-white">
@@ -134,18 +136,18 @@
         </div>
       </div>
       <div class="content_view">
-        <h3>{{item.title}}</h3>
-        <p><small>{{item.tiny}}</small></p>
-        <p>{{item.paragraph}}</p>
+        <h4>{{item.snippet.title}}</h4>
+        <!-- <p><small>{{item.tiny}}</small></p> -->
+        <p>{{item.snippet.description}}</p>
       </div>
-      <div class="channel_button" *ngIf ="item.channel">
-        <button class="btn btn-danger btn-lg" routerLink="/channel"> Subscribe <small><b>27K</b></small></button>
+      <div class="channel_button" ng-if="item.id.kind == 'youtube#channel'">
+        <button class="btn btn-danger btn-lg" routerLink="/channel"> Subscribe </button>
       </div>
     </div>
   </div>
 
-  <h3 class="center mt-40" *ngIf = "search_result.length == 0"> There is no Results</h3>
+  <h3 class="center mt-40" ng-if="ctrl.items.length == 0"> There is no Results</h3>
 
-  <img src="https://thumbs.gfycat.com/AggressiveGrouchyHammerkop-max-1mb.gif" width="60" *ngIf="show_loading" class="center"> 
+  <img src="https://thumbs.gfycat.com/AggressiveGrouchyHammerkop-max-1mb.gif" width="60" ng-if="ctrl.show_loading" class="center"> 
 </div>
-<ng2-slim-loading-bar></ng2-slim-loading-bar>
+<ng-progress></ng-progress>

@@ -1,4 +1,4 @@
-## Angular Seed App 
+## Angular YouTube-Like App 
 
 [![Build Status](https://travis-ci.org/PauloLuan/angular-gulp-seed.svg)](https://travis-ci.org/PauloLuan/angular-gulp-seed)
 [![Coverage Status](https://coveralls.io/repos/PauloLuan/angular-gulp-seed/badge.svg)](https://coveralls.io/r/PauloLuan/angular-gulp-seed) 

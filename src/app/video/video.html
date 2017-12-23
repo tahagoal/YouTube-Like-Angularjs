@@ -1,0 +1,97 @@
+<div>
+    <acme-navbar />
+</div>
+
+<div class="container mt-60 mb-60">
+  <div class="row">
+  	<div class="bg-white padding_cont">
+  		<div class="wd-100">
+  			<iframe width="100%" height="450" src="https://www.youtube.com/embed/9HObbvrlYEA" frameborder="0" allowfullscreen></iframe>
+  		</div>
+  		<div class="container">
+  			<div class="row">
+  				<div class="col-xs-12">
+	  				<h4>Sponge pop title</h4>
+	  			</div>
+	  		</div>
+	  		<div class="row border_about">
+	  			<div class="col-xs-4 mb-10">
+	  				1,672 Watching now
+	  			</div>
+	  			<div class="col-sm-5 col-xs-12 col-sm-offset-3">
+	  				<div class="right_buttons">
+	  					<div class="like_btn">
+	  						<i class="fa fa-thumbs-up" aria-hidden="true"></i>
+	  						<p>1K</p>
+	  					</div>
+	  					<div class="dislike_btn">
+	  						<i class="fa fa-thumbs-down" aria-hidden="true"></i>
+	  						<p>153</p>
+
+	  					</div>
+	  					<div class="share_btn">
+	  						<i class="fa fa-share" aria-hidden="true"></i>
+	  						<p>Share</p>
+	  					</div>
+	  					<div class="plus_btn">
+	  						<i class="fa fa-list-ul" aria-hidden="true"></i>
+	  					</div>
+	  					<div class="more">
+	  						<i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+	  					</div>
+	  				</div>
+	  			</div>
+	  		</div>
+	  		<div class="row border_about">
+  				<div class="col-xs-12 mt-20 mb-20 display_row_imco">
+	  				<div class="img_cont_vid">
+	  					<img id="img" class="style-scope yt-img-shadow" width="48" src="https://yt3.ggpht.com/-z3A0ZYNR99E/AAAAAAAAAAI/AAAAAAAAAAA/gyHKOxhL3Y8/s88-c-k-no-mo-rj-c0xffffff/photo.jpg">
+	  				</div>
+	  				<div>
+	  					<h4 class="m0-at">Nickalodean</h4>
+	  					<p class="m0-at">Published on 21 Dec 2014</p>
+	  				</div>
+	  			</div>
+	  		</div>
+  		</div>
+
+  		<div class="row mt-20 ml-10 display_row_imco"  *ngFor="let item of search_result">
+        <div class="image_view" routerLink="/video" *ngIf = "item.video">
+          <img src="{{item.img}}">
+          <span class="timing_img">2:02</span>
+        </div>
+        <div class="image_view" routerLink="/channel" *ngIf = "item.channel">
+          <div class="center channel_pp_search">
+            <img width="120" height="120" src="{{item.img}}">
+          </div>
+        </div>
+        <div class="image_view" *ngIf = "item.playlist">
+          <img src="{{item.img}}">
+          <span class="timing_img_playlist">
+            <p class="mt-30 ft-20"><b>37</b></p>
+            <p class="mt-5 text-white">
+              <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope yt-icon" style="pointer-events: none; display: block; width: 40%; height: 100%;">
+              <g fill="white" class="style-scope yt-icon">
+                <path d="M3.67 8.67h14V11h-14V8.67zm0-4.67h14v2.33h-14V4zm0 9.33H13v2.34H3.67v-2.34zm11.66 0v7l5.84-3.5-5.84-3.5z" class="style-scope yt-icon"></path>
+                </g>
+              </svg>
+            </p>
+          </span>
+          <div class="img_hover">
+            <h4 class="mt-50 center text-white">PLAY ALL</h4>
+          </div>
+        </div>
+        <div class="content_view wd-60">
+          <h3>{{item.title}}</h3>
+          <p><small>{{item.tiny}}</small></p>
+          <p>{{item.paragraph}}</p>
+        </div>
+        <div class="channel_button" *ngIf ="item.channel">
+          <button class="btn btn-danger btn-lg"> Subscribe <small><b>27K</b></small></button>
+        </div>
+      </div>
+
+  	</div>
+  </div>
+  <img src="https://thumbs.gfycat.com/AggressiveGrouchyHammerkop-max-1mb.gif" width="60" *ngIf="show_loading" class="center"> 
+</div>

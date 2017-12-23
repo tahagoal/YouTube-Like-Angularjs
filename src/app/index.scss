@@ -164,12 +164,24 @@ $border_color_1: #d43f3a;
 }
 .timing_img_playlist {
 	position: absolute;
-	right: 4px;
+	right: 0px;
+	top:0px;
 	background-color: $background_color_3;
 	width: 30%;
 	height: 100%;
 	text-align: -webkit-center;
 	color: $color_1;
+}
+
+.image_view_channel{
+	cursor: pointer !important;
+	width: 250px;
+	max-width: 250px;
+	min-width: 250px;
+	float: left;
+	margin-right: 20px;
+	position: relative;
+	height: fit-content;
 }
 .image_view {
 	&:hover {
@@ -407,8 +419,10 @@ $border_color_1: #d43f3a;
 	}
 }
 @media (max-width:767px) {
-	.search_input {
-		width: 220px;
+	.search_input_mobile {
+		width: 50%;
+		position: absolute;
+	    display: inline;
 	}
 	.for_mobile {
 		display: block !important;
@@ -428,6 +442,49 @@ $border_color_1: #d43f3a;
 	.channel_cover {
 		height: 50px;
 		background-size: cover;
+	}
+
+	.navbar_big_container_for_mob{
+		position: relative !important;
+		margin-bottom: -40px !important;
+	}
+
+	.close-icon {
+		border:1px solid transparent;
+		background-color: transparent;
+		display: inline-block;
+		vertical-align: middle;
+		outline: 0;
+		cursor: pointer;
+	}
+	.close-icon:after {
+	    content: "X";
+	    display: block;
+	    width: 15px;
+	    height: 15px;
+	    position: absolute;
+	    right: 32%;
+	    top: 8px;
+	    bottom: 0;
+	    margin: auto;
+	    padding: 2px;
+	    border-radius: 50%;
+	    text-align: center;
+	    color: black;
+	    font-weight: normal;
+	    font-size: 12px;
+	    cursor: pointer;
+	}
+
+	.image_view_channel{
+		cursor: pointer !important;
+		width: 150px;
+		max-width: 150px;
+		min-width: 150px;
+		float: left;
+		margin-right: 20px;
+		position: relative;
+		height: fit-content;
 	}
 }
 @media (max-width:1024px) {
