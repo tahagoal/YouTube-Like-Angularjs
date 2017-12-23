@@ -1,0 +1,445 @@
+/**
+ *  If you want to override some bootstrap variables, you have to change values here.
+ *  The list of variables are listed here bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_variables.scss
+ */
+$navbar-inverse-link-color: #5AADBB;
+$icon-font-path: "../../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+
+/**
+ *  Do not remove this comments bellow. It's the markers used by wiredep to inject
+ *  sass dependencies when defined in the bower.json of your dependencies
+ */
+// bower:scss
+// endbower
+
+$color_1: #fff;
+$color_2: gray;
+$color_3: green;
+$color_4: white;
+$color_5: #cc181e;
+$background_color_1: #fff;
+$background_color_2: #ffffff;
+$background_color_3: rgba(0,0,0,0.4);
+$background_color_4: rgba(0,0,0,0.8);
+$background_color_5: hsl(0, 100%, 50%);
+$background_color_6: green;
+$background_color_7: #cc181e;
+$border_color_1: #d43f3a;
+
+/* Styling for the Slim Loading Progress Bar itself */
+.mt-5 {
+	margin-top: 5px !important;
+}
+.mt-10 {
+	margin-top: 10px !important;
+}
+.mt-15 {
+	margin-top: 15px !important;
+}
+.mt-20 {
+	margin-top: 20px !important;
+}
+.mt-30 {
+	margin-top: 30px !important;
+}
+.mt-40 {
+	margin-top: 40px !important;
+}
+.mt-50 {
+	margin-top: 50px !important;
+}
+.mt-60 {
+	margin-top: 60px !important;
+}
+.mt-70 {
+	margin-top: 70px !important;
+}
+.mb-5 {
+	margin-bottom: 5px !important;
+}
+.mb-10 {
+	margin-bottom: 10px !important;
+}
+.mb-20 {
+	margin-bottom: 20px !important;
+}
+.mb-30 {
+	margin-bottom: 30px !important;
+}
+.mb-40 {
+	margin-bottom: 40px !important;
+}
+.mb-50 {
+	margin-bottom: 50px !important;
+}
+.mb-60 {
+	margin-bottom: 60px !important;
+}
+.mb-70 {
+	margin-bottom: 70px !important;
+}
+.ml-5 {
+	margin-left: 5px !important;
+}
+.ml-10 {
+	margin-left: 10px !important;
+}
+.ml-20 {
+	margin-left: 20px !important;
+}
+.ml-30 {
+	margin-left: 30px !important;
+}
+.ml-40 {
+	margin-left: 40px !important;
+}
+.ml-50 {
+	margin-left: 50px !important;
+}
+.ml-60 {
+	margin-left: 60px !important;
+}
+.ml-70 {
+	margin-left: 70px !important;
+}
+.mr-5 {
+	margin-right: 5px !important;
+}
+.mr-10 {
+	margin-right: 10px !important;
+}
+.mr-20 {
+	margin-right: 20px !important;
+}
+.mr-30 {
+	margin-right: 30px !important;
+}
+.mr-40 {
+	margin-right: 40px !important;
+}
+.mr-50 {
+	margin-right: 50px !important;
+}
+.mr-60 {
+	margin-right: 60px !important;
+}
+.mr-70 {
+	margin-right: 70px !important;
+}
+.center {
+	margin: 0 auto;
+	display: table !important;
+}
+.fl-left {
+	float: left !important;
+}
+.fl-right {
+	float: right !important;
+}
+.shadow_nav {
+	box-shadow: 0px 1px 5px #d8d8d8;
+	background-color: $background_color_1;
+}
+.bg-white {
+	background-color: $background_color_2;
+}
+.border_about {
+	border-bottom: 1px solid #f1f1f1;
+}
+.filter_icon {
+	height: 20px;
+	width: 50px;
+	display: inline-block;
+	float: right;
+}
+.timing_img {
+	position: absolute;
+	right: 10px;
+	bottom: 3px;
+	background-color: $background_color_3;
+	border-radius: 25%;
+	width: 34px;
+	text-align: -webkit-center;
+	color: $color_1;
+}
+.timing_img_playlist {
+	position: absolute;
+	right: 4px;
+	background-color: $background_color_3;
+	width: 30%;
+	height: 100%;
+	text-align: -webkit-center;
+	color: $color_1;
+}
+.image_view {
+	&:hover {
+		.img_hover {
+			opacity: 1;
+		}
+	}
+	cursor: pointer !important;
+	width: 250px;
+	max-width: 250px;
+	min-width: 250px;
+	float: left;
+	margin-right: 20px;
+	position: relative;
+	height: fit-content;
+}
+.img_hover {
+	height: 100%;
+	width: 100%;
+	background-color: $background_color_4;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0;
+	transition: opacity .25s ease-in-out;
+	-moz-transition: opacity .25s ease-in-out;
+	-webkit-transition: opacity .25s ease-in-out;
+}
+.content_view {
+	float: left;
+	min-width: 0px;
+	max-width: 750px;
+	position: relative;
+	width: auto;
+}
+.display_row_imco {
+	display: -webkit-box;
+}
+.padding_cont {
+	padding: 20px 0px;
+}
+.like_btn {
+	display: -webkit-inline-box;
+	margin-right: 20px;
+	vertical-align: top;
+	i {
+		color: $color_2;
+		font-size: 25px;
+	}
+}
+.dislike_btn {
+	display: -webkit-inline-box;
+	margin-right: 20px;
+	vertical-align: top;
+	i {
+		color: $color_2;
+		font-size: 25px;
+	}
+}
+.share_btn {
+	display: -webkit-inline-box;
+	margin-right: 20px;
+	vertical-align: top;
+	i {
+		color: $color_2;
+		font-size: 25px;
+	}
+}
+.plus_btn {
+	display: -webkit-inline-box;
+	margin-right: 20px;
+	vertical-align: top;
+	i {
+		color: $color_2;
+		font-size: 25px;
+	}
+}
+.more {
+	display: -webkit-inline-box;
+	margin-right: 20px;
+	vertical-align: top;
+	i {
+		color: $color_2;
+		font-size: 25px;
+	}
+}
+.animation_filter {
+	-webkit-transition: all 1s ease-in-out;
+	-moz-transition: all 1s ease-in-out;
+	-o-transition: all 1s ease-in-out;
+	transition: all 1s ease-in-out;
+	h5 {
+		cursor: pointer;
+	}
+	h6 {
+		cursor: pointer;
+	}
+}
+.filter_click {
+	display: inline-block;
+	float: right;
+	cursor: pointer;
+	opacity: 0.7;
+	&:hover {
+		opacity: 1;
+	}
+}
+.channel_cover {
+	background-image: url('http://coverlayout.com/facebook/covers/spongebob_eyes/spongebob_eyes.jpg');
+	height: 250px;
+}
+.channel_pp {
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	margin-right: 15px;
+	overflow: hidden;
+	position: absolute;
+	bottom: -20px;
+}
+.channel_pp_search {
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	overflow: hidden;
+}
+.channel_button {
+	position: absolute;
+	right: 20px;
+	button {
+		background-color: $background_color_5 !important;
+		border-color: $border_color_1;
+		border-radius: 0px !important;
+	}
+}
+.bold_h {
+	font-weight: bold;
+}
+.slim-loading-bar {
+	position: fixed;
+	margin: 0;
+	padding: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 99999;
+}
+.slim-loading-bar-progress {
+	margin: 0;
+	padding: 0;
+	z-index: 99998;
+	background-color: $background_color_6;
+	color: $color_3;
+	box-shadow: 0 0 10px 0;
+	height: 2px;
+	opacity: 0;
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+}
+.nav_mob {
+	.fa-youtube-play {
+		color: $color_4;
+		font-size: 30px;
+	}
+	height: 35px;
+	margin-top: 10px;
+	h4 {
+		display: -webkit-inline-box;
+		color: $color_4;
+		vertical-align: super;
+		margin: 0 auto;
+	}
+	.fa-search {
+		color: $color_4;
+		font-size: 20px;
+	}
+}
+.subs_channel {
+	color: $color_5;
+	.fa-youtube-play {
+		font-size: 40px;
+		vertical-align: middle;
+	}
+	span {
+		color: $color_2;
+	}
+}
+.ft-20 {
+	font-size: 20px;
+}
+.text-white {
+	color: $color_4;
+}
+.wd-100 {
+	width: 100%;
+}
+.wd-60 {
+	width: 61%;
+}
+.channel_row {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.img_cont_vid {
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	margin-right: 15px;
+	overflow: hidden;
+}
+.m0-at {
+	margin: 0 auto;
+}
+.type_but {
+	width: 90px;
+}
+@media (min-width:768px) {
+	.search_input {
+		width: 650px;
+	}
+	.for_mobile {
+		display: none !important;
+	}
+	.for_desk {
+		display: block !important;
+	}
+	.shadow_nav {
+		.navbar-header {
+			margin-left: 70px;
+		}
+	}
+}
+@media (max-width:767px) {
+	.search_input {
+		width: 220px;
+	}
+	.for_mobile {
+		display: block !important;
+	}
+	.for_desk {
+		display: none !important;
+	}
+	.shadow_nav {
+		background-color: $background_color_7 !important;
+		.navbar-header {
+			margin-left: 15px;
+		}
+	}
+	.channel_button {
+		display: none;
+	}
+	.channel_cover {
+		height: 50px;
+		background-size: cover;
+	}
+}
+@media (max-width:1024px) {
+	.search_input {
+		width: 400px;
+	}
+}
+
+
+/**
+ *  Do not remove this comments bellow. It's the markers used by gulp-inject to inject
+ *  all your sass files automatically
+ */
+// injector
+// endinjector

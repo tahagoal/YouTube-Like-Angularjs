@@ -1,0 +1,151 @@
+<div>
+    <acme-navbar />
+</div>
+
+<div class="container mt-60">
+  <div class="row border_about">
+    <div class="col-xs-6 for_desk">
+      <h4>About 12,200,000 results</h4>
+    </div>
+    <div class="col-xs-3 col-xs-offset-3 for_desk">
+      <div ng-click="ctrl.toggleFilter()" class="filter_click">
+        <h4 class="fl-right">Filters</h4>
+        <div class="mt-10 mb-10 filter_icon">
+          <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope yt-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope yt-icon">
+            <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z" class="style-scope yt-icon"></path>
+          </g></svg>
+        </div>
+      </div>
+    </div>
+    <div class="animation_filter" ng-if="ctrl.show_filters">
+      <div class="col-xs-4 for_desk">
+        <h5 class="border_about">UPLOAD DATE</h5>
+        <h6 (click)="upload_filter('lh')" [ngClass]="{'bold_h': upload_variable === 'lh'}">Last hour 
+          <i *ngIf="upload_variable == 'lh'" class="fa fa-times" aria-hidden="true"></i>
+        </h6>
+        <h6 (click)="upload_filter('to')" [ngClass]="{'bold_h': upload_variable === 'to'}">Today 
+          <i *ngIf="upload_variable == 'to'" class="fa fa-times" aria-hidden="true"></i>
+        </h6>
+        <h6 (click)="upload_filter('we')" [ngClass]="{'bold_h': upload_variable === 'we'}">This week 
+          <i *ngIf="upload_variable == 'we'" class="fa fa-times" aria-hidden="true"></i>
+        </h6>
+        <h6 (click)="upload_filter('mo')" [ngClass]="{'bold_h': upload_variable === 'mo'}">This month 
+          <i *ngIf="upload_variable == 'mo'" class="fa fa-times" aria-hidden="true"></i>
+        </h6>
+      </div>
+
+      <div class="col-xs-4 for_desk">
+        <h5 class="border_about">TYPE</h5>
+        <h6 (click)="type('vi')" [ngClass]="{'bold_h': type_variable === 'vi'}">Video 
+          <i *ngIf="type_variable == 'vi'" class="fa fa-times" aria-hidden="true"></i>
+        </h6>
+        <h6 (click)="type('ch')" [ngClass]="{'bold_h': type_variable === 'ch'}">Channel 
+          <i *ngIf="type_variable == 'ch'" class="fa fa-times" aria-hidden="true"></i>
+        </h6>
+        <h6 (click)="type('pl')" [ngClass]="{'bold_h': type_variable === 'pl'}">Playlist 
+          <i *ngIf="type_variable == 'pl'" class="fa fa-times" aria-hidden="true"></i>
+        </h6>
+      </div>
+
+      <div class="col-xs-4 for_desk">
+        <h5 class="border_about">SORT BY</h5>
+        <h6 (click)="sort('re')" [ngClass]="{'bold_h': sort_variable === 're'}">Relevance</h6>
+        <h6 (click)="sort('up')" [ngClass]="{'bold_h': sort_variable === 'up'}">Upload date</h6>
+        <h6 (click)="sort('vi')" [ngClass]="{'bold_h': sort_variable === 'vi'}">View count</h6>
+        <h6 (click)="sort('ra')" [ngClass]="{'bold_h': sort_variable === 'ra'}">Rating</h6>
+      </div>
+    </div>
+
+    <div class="for_mobile mb-20 col-xs-12">
+    <div class="col-xs-4">
+      <div class="dropdown">
+        <button *ngIf="type_variable ===''" class="btn btn-default type_but dropdown-toggle" type="button" data-toggle="dropdown">All
+        <span class="caret"></span></button>
+        <button *ngIf="type_variable === 'ch'" class="btn btn-default type_but dropdown-toggle" type="button" data-toggle="dropdown">Channel
+        <span class="caret"></span></button>
+        <button *ngIf="type_variable === 'pl'" class="btn btn-default type_but dropdown-toggle" type="button" data-toggle="dropdown">Playlists
+        <span class="caret"></span></button>
+
+        <ul class="dropdown-menu">
+          <li><a (click)="type('')">All</a></li>
+          <li><a (click)="type('ch')">Channels</a></li>
+          <li><a (click)="type('pl')">Playlists</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-xs-6">
+      <div class="dropdown">
+
+        <button *ngIf="upload_variable === ''" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Any Time
+        <span class="caret"></span></button>
+
+        <button *ngIf="upload_variable === 'to'" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Today
+        <span class="caret"></span></button>
+
+        <button *ngIf="upload_variable === 'we'" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">This week
+        <span class="caret"></span></button>
+
+        <button *ngIf="upload_variable === 'mo'" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">This Month 
+        <span class="caret"></span></button>
+
+        <ul class="dropdown-menu">
+          <li><a (click)="upload_filter('')">Any Time</a></li>
+          <li><a (click)="upload_filter('to')">Today</a></li>
+          <li><a (click)="upload_filter('we')">This Week</a></li>
+          <li><a (click)="upload_filter('mo')">This Month</a></li>
+        </ul>
+      </div>
+    </div>
+
+    </div>
+
+  </div>
+
+  <div class="row mt-20 center"  *ngIf="filter_loading">
+    <img src="https://thumbs.gfycat.com/AggressiveGrouchyHammerkop-max-1mb.gif" width="50%" class="center"> 
+  </div>
+
+  <div *ngIf="!filter_loading">
+    <div class="row mt-20 ml-10 display_row_imco" ng-repeat="item in ctrl.items">
+      <div class="image_view" routerLink="/video" *ngIf = "item.video">
+        <img src="{{item.snippet.thumbnails.medium.url}}">
+        <span class="timing_img">2:02</span>
+      </div>
+      <div class="image_view" routerLink="/channel" *ngIf = "item.channel">
+        <div class="center channel_pp_search">
+          <img width="120" height="120" src="{{item.snippet.thumbnails.medium.url}}">
+        </div>
+      </div>
+      <div class="image_view" *ngIf = "item.playlist">
+        <img src="{{item.snippet.thumbnails.medium.url}}">
+        <span class="timing_img_playlist">
+          <p class="mt-30 ft-20"><b>37</b></p>
+          <p class="mt-5 text-white">
+            <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope yt-icon" style="pointer-events: none; display: block; width: 40%; height: 100%;">
+            <g fill="white" class="style-scope yt-icon">
+              <path d="M3.67 8.67h14V11h-14V8.67zm0-4.67h14v2.33h-14V4zm0 9.33H13v2.34H3.67v-2.34zm11.66 0v7l5.84-3.5-5.84-3.5z" class="style-scope yt-icon"></path>
+              </g>
+            </svg>
+          </p>
+        </span>
+        <div class="img_hover">
+          <h4 class="mt-50 center text-white">PLAY ALL</h4>
+        </div>
+      </div>
+      <div class="content_view">
+        <h3>{{item.title}}</h3>
+        <p><small>{{item.tiny}}</small></p>
+        <p>{{item.paragraph}}</p>
+      </div>
+      <div class="channel_button" *ngIf ="item.channel">
+        <button class="btn btn-danger btn-lg" routerLink="/channel"> Subscribe <small><b>27K</b></small></button>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="center mt-40" *ngIf = "search_result.length == 0"> There is no Results</h3>
+
+  <img src="https://thumbs.gfycat.com/AggressiveGrouchyHammerkop-max-1mb.gif" width="60" *ngIf="show_loading" class="center"> 
+</div>
+<ng2-slim-loading-bar></ng2-slim-loading-bar>
