@@ -21,8 +21,10 @@
         return directive;
 
         /** @ngInject */
-        function NavbarController($scope) {
+        function NavbarController($scope, $stateParams) {
             var vm = this;
+
+            vm.placeholder = $stateParams.query;
             vm.show_search_mobile = false;
 
             vm.showSearchMobile = function(){

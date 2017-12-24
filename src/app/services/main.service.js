@@ -42,7 +42,7 @@
             });
         };
 
-        var _cannelSections = function (channel_id, number) {
+        var _cannelSections = function (channel_id) {
             return $http.get(serviceBase + 'channelSections', {
                 params: {
                     "channelId": channel_id,
@@ -84,13 +84,19 @@
         };
 
 
+        /*used*/
         mainServiceFactory.searchResults = _searchResults;
+        /*used*/
         mainServiceFactory.videoRelated = _videoRelated;
+        /*used*/
         mainServiceFactory.channelPlaylist = _channelPlaylist;
         mainServiceFactory.cannelSections = _cannelSections;
+        /*used*/
         mainServiceFactory.playlistVideos = _playlistVideos;
-        mainServiceFactory._videoDetails = _videoDetails;
-        mainServiceFactory._channelDetails = _channelDetails;
+        /*used*/
+        mainServiceFactory.videoDetails = _videoDetails;
+        /*used*/
+        mainServiceFactory.channelDetails = _channelDetails;
 
         return mainServiceFactory;
     }]);

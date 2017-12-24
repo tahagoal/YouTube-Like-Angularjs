@@ -68,9 +68,9 @@
         <span class="caret"></span></button>
 
         <ul class="dropdown-menu">
-          <li><a (click)="type('')">All</a></li>
-          <li><a (click)="type('ch')">Channels</a></li>
-          <li><a (click)="type('pl')">Playlists</a></li>
+          <li><a ng-click="type_filter('')">All</a></li>
+          <li><a ng-click="type_filter('ch')">Channels</a></li>
+          <li><a ng-click="type_filter('pl')">Playlists</a></li>
         </ul>
       </div>
     </div>
@@ -92,10 +92,10 @@
         <span class="caret"></span></button>
 
         <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
-          <li><a ng-click="upload_variable = ''">Any Time</a></li>
-          <li><a ng-click="upload_variable = 'to'">Today</a></li>
-          <li><a ng-click="upload_variable = 'we'">This Week</a></li>
-          <li><a ng-click="upload_variable = 'mo'">This Month</a></li>
+          <li><a ng-click="ctrl.upload_filter('')">Any Time</a></li>
+          <li><a ng-click="ctrl.upload_filter('to')">Today</a></li>
+          <li><a ng-click="ctrl.upload_filter('we')"This Week</a></li>
+          <li><a ng-click="ctrl.upload_filter('mo')">This Month</a></li>
         </ul>
       </div>
     </div>
@@ -119,7 +119,7 @@
           <img width="120" height="120" src="{{item.snippet.thumbnails.medium.url}}">
         </div>
       </div>
-      <div class="image_view" ng-if="item.id.kind == 'youtube#playlist'">
+      <div class="image_view" ui-sref="video({videoId: item.id.playlistId, playlist:true})" ng-if="item.id.kind == 'youtube#playlist'">
         <img width="250" src="{{item.snippet.thumbnails.medium.url}}">
         <span class="timing_img_playlist">
           <p class="mt-30 ft-20"><b>37</b></p>

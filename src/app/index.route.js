@@ -21,7 +21,7 @@
                 controllerAs: 'ctrl'
             })
             .state('video', {
-                url: '/video/:videoId',
+                url: '/video/:videoId?playlist',
                 templateUrl: 'app/video/video.html',
                 controller: 'VideoController',
                 controllerAs: 'ctrl'
