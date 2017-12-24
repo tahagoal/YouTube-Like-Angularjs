@@ -1,5 +1,5 @@
 <div>
-    <acme-navbar />
+    <acme-navbar show="showSearchMobile(mobile, query)" search="searchSubmit(query)" />
 </div>
 
 <div class="container mt-60 mb-60">
@@ -17,42 +17,42 @@
         </div>
       </div>
     </div>
-    <div class="animation_filter" ng-if="ctrl.show_filters">
+    <div class="animation_filter animate-show-hide" ng-show="ctrl.show_filters">
       <div class="col-xs-4 for_desk">
         <h5 class="border_about">UPLOAD DATE</h5>
-        <h6 (click)="upload_filter('lh')" [ngClass]="{'bold_h': upload_variable === 'lh'}">Last hour 
+        <h6 ng-click="ctrl.upload_filter('lh')" ng-class="{'bold_h': ctrl.upload_variable === 'lh'}">Last hour 
           <i ng-if="ctrl.upload_variable == 'lh'" class="fa fa-times" aria-hidden="true"></i>
         </h6>
-        <h6 (click)="upload_filter('to')" [ngClass]="{'bold_h': upload_variable === 'to'}">Today 
+        <h6 ng-click="ctrl.upload_filter('to')" ng-class="{'bold_h': ctrl.upload_variable === 'to'}">Today 
           <i ng-if="ctrl.upload_variable == 'to'" class="fa fa-times" aria-hidden="true"></i>
         </h6>
-        <h6 (click)="upload_filter('we')" [ngClass]="{'bold_h': upload_variable === 'we'}">This week 
+        <h6 ng-click="ctrl.upload_filter('we')" ng-class="{'bold_h': ctrl.upload_variable === 'we'}">This week 
           <i ng-if="ctrl.upload_variable == 'we'" class="fa fa-times" aria-hidden="true"></i>
         </h6>
-        <h6 (click)="upload_filter('mo')" [ngClass]="{'bold_h': upload_variable === 'mo'}">This month 
+        <h6 ng-click="ctrl.upload_filter('mo')" ng-class="{'bold_h': ctrl.upload_variable === 'mo'}">This month 
           <i ng-if="ctrl.upload_variable == 'mo'" class="fa fa-times" aria-hidden="true"></i>
         </h6>
       </div>
 
       <div class="col-xs-4 for_desk">
         <h5 class="border_about">TYPE</h5>
-        <h6 (click)="type('vi')" [ngClass]="{'bold_h': type_variable === 'vi'}">Video 
+        <h6 ng-click="ctrl.type_filter('vi')" ng-class="{'bold_h': ctrl.type_variable === 'vi'}">Video 
           <i ng-if="ctrl.type_variable == 'vi'" class="fa fa-times" aria-hidden="true"></i>
         </h6>
-        <h6 (click)="type('ch')" [ngClass]="{'bold_h': type_variable === 'ch'}">Channel 
+        <h6 ng-click="ctrl.type_filter('ch')" ng-class="{'bold_h': ctrl.type_variable === 'ch'}">Channel 
           <i ng-if="ctrl.type_variable == 'ch'" class="fa fa-times" aria-hidden="true"></i>
         </h6>
-        <h6 (click)="type('pl')" [ngClass]="{'bold_h': type_variable === 'pl'}">Playlist 
+        <h6 ng-click="ctrl.type_filter('pl')" ng-class="{'bold_h': ctrl.type_variable === 'pl'}">Playlist 
           <i ng-if="ctrl.type_variable == 'pl'" class="fa fa-times" aria-hidden="true"></i>
         </h6>
       </div>
 
       <div class="col-xs-4 for_desk">
         <h5 class="border_about">SORT BY</h5>
-        <h6 (click)="sort('re')" [ngClass]="{'bold_h': sort_variable === 're'}">Relevance</h6>
-        <h6 (click)="sort('up')" [ngClass]="{'bold_h': sort_variable === 'up'}">Upload date</h6>
-        <h6 (click)="sort('vi')" [ngClass]="{'bold_h': sort_variable === 'vi'}">View count</h6>
-        <h6 (click)="sort('ra')" [ngClass]="{'bold_h': sort_variable === 'ra'}">Rating</h6>
+        <h6 ng-click="ctrl.sort_filter('re')" ng-class="{'bold_h': ctrl.sort_variable === 're'}">Relevance</h6>
+        <h6 ng-click="ctrl.sort_filter('up')" ng-class="{'bold_h': ctrl.sort_variable === 'up'}">Upload date</h6>
+        <h6 ng-click="ctrl.sort_filter('vi')" ng-class="{'bold_h': ctrl.sort_variable === 'vi'}">View count</h6>
+        <h6 ng-click="ctrl.sort_filter('ra')" ng-class="{'bold_h': ctrl.sort_variable === 'ra'}">Rating</h6>
       </div>
     </div>
 
@@ -109,12 +109,12 @@
   </div>
 
   <div ng-if="!ctrl.filter_loading && ctrl.items.length > 0">
-    <div class="row mt-20 ml-10 display_row_imco" ng-repeat="item in ctrl.items">
-      <div class="image_view" routerLink="/video" ng-if="item.id.kind == 'youtube#video'">
+    <div class="row mt-20 ml-10 display_row_imco" ng-repeat="item in ctrl.items | orderBy: ctrl.sort_word">
+      <div class="image_view" ui-sref="video({videoId: item.id.videoId})" ng-if="item.id.kind == 'youtube#video'">
         <img width="250" src="{{item.snippet.thumbnails.medium.url}}">
         <span class="timing_img">2:02</span>
       </div>
-      <div class="image_view_channel" routerLink="/channel" ng-if="item.id.kind == 'youtube#channel'">
+      <div class="image_view_channel" ui-sref="channel({channelId: item.id.channelId})" ng-if="item.id.kind == 'youtube#channel'">
         <div class="center channel_pp_search">
           <img width="120" height="120" src="{{item.snippet.thumbnails.medium.url}}">
         </div>

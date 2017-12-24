@@ -1,7 +1,7 @@
-<nav class="navbar shadow_nav navbar-fixed-top navbar_big_container_for_mob" ng-controller="MainController as ctrl">
+<nav class="navbar shadow_nav navbar-fixed-top navbar_big_container_for_mob>
   <div class="container-fluid">
     <div class="navbar-header">
-      <div routerLink="/main" class="for_desk" style="height: 35px; width: 90px; margin-top: 7px;">
+      <div ui-sref="search" class="for_desk" style="height: 35px; width: 90px; margin-top: 7px;">
         <svg viewBox="0 0 200 60" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope ytd-topbar-logo-renderer" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g viewBox="0 0 200 60" preserveAspectRatio="xMidYMid meet" class="style-scope ytd-topbar-logo-renderer">
           <g class="style-scope ytd-topbar-logo-renderer">
             <path fill="#FF0000" d="M63,14.87c-0.72-2.7-2.85-4.83-5.56-5.56C52.54,8,32.88,8,32.88,8S13.23,8,8.32,9.31
@@ -47,17 +47,17 @@
       </div>
       <div class="for_mobile nav_mob">
         <i class="fa fa-youtube-play" aria-hidden="true"></i>
-        <input ng-show="ctrl.show_search_mobile" type="text" class="form-control search_input_mobile ml-20" ng-model="ctrl.query" placeholder="{{ctrl.query}}">
+        <input ng-show="ctrl.show_search_mobile" type="text" class="form-control search_input_mobile ml-20" ng-model="querys" placeholder="{{querys}}">
         <button ng-show="ctrl.show_search_mobile" class="close-icon" ng-click="ctrl.show_search_mobile = false" type="reset"></button>
         <h4 ng-show="!ctrl.show_search_mobile">YouTube</h4>
-        <i style="cursor: pointer;" class="fa fa-search fl-right mr-20 mt-5" aria-hidden="true" ng-click="ctrl.showSearchMobile()"></i>
+        <i style="cursor: pointer;" class="fa fa-search fl-right mr-20 mt-5" aria-hidden="true" ng-click="ctrl.showSearchMobile(); show({mobile:ctrl.show_search_mobile, query:querys})"></i>
       </div>
     </div>
     <form class="navbar-form for_desk navbar-left ml-50">
       <div class="input-group search_input">
-        <input type="text" class="form-control" ng-model="ctrl.query" placeholder="{{ctrl.query}}">
+        <input type="text" class="form-control" ng-model="querys" placeholder="{{querys}}">
         <div class="input-group-btn">
-          <button class="btn btn-default" ng-click="ctrl.searchSubmit(ctrl.query)" type="submit">
+          <button class="btn btn-default" ng-click="search({query:querys})" type="submit">
             <i class="fa fa-search" aria-hidden="true"></i>
           </button>
         </div>

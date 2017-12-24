@@ -11,17 +11,24 @@
             restrict: 'E',
             templateUrl: 'app/components/navbar/navbar.html',
             scope: {
-                creationDate: '='
+                search: '&',
+                show: '&'
             },
             controller: NavbarController,
-            controllerAs: 'vm',
-            bindToController: true
+            controllerAs: 'ctrl'
         };
 
         return directive;
 
         /** @ngInject */
-        function NavbarController() {}
+        function NavbarController($scope) {
+            var vm = this;
+            vm.show_search_mobile = false;
+
+            vm.showSearchMobile = function(){
+                vm.show_search_mobile = !vm.show_search_mobile;
+            }
+        }
     }
 
 })();

@@ -8,11 +8,12 @@
         var mainServiceFactory = {};
         var serviceBase = settings.baseUrl();
 
-        var _searchResults = function (query, number) {
+        var _searchResults = function (query, number, Ptoken) {
             return $http.get(serviceBase + 'search', {
                 params: {
                     "q": query,
                     "maxResults": number,
+                    "pageToken": Ptoken,
                     "part": 'snippet',
                     "key" : settings.googleApiKey()
                 }

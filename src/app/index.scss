@@ -173,6 +173,16 @@ $border_color_1: #d43f3a;
 	color: $color_1;
 }
 
+.animate-show-hide.ng-hide {
+  opacity: 0;
+}
+
+.animate-show-hide.ng-hide-add,
+.animate-show-hide.ng-hide-remove {
+  transition: all linear 0.5s;
+}
+
+
 .image_view_channel{
 	cursor: pointer !important;
 	width: 250px;
@@ -420,7 +430,7 @@ $border_color_1: #d43f3a;
 }
 @media (max-width:767px) {
 	.search_input_mobile {
-		width: 50%;
+		width: 55%;
 		position: absolute;
 	    display: inline;
 	}
